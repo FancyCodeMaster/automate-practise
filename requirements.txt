@@ -1,0 +1,9 @@
+pandas
+scikit-learn
+numpy
+matplotlib
+zenml
+zenml[server]
+mlflow
+dvc # data versioning
+joblib
