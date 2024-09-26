@@ -1,0 +1,29 @@
+name: Automating model training
+
+on:
+  push:
+    branches:
+      - train
+  pull_request:
+    branches:
+      - train
+
+jobs:
+  train-model:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+    
+    - name: Run ZenML training pipeline
+      run: |
+        python3 run_training_pipeline.py

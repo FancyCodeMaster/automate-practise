@@ -1,11 +1,11 @@
 import logging
 from zenml import step
 from src.model_save import ModelSave
-from src.modeling import Modeling
+from sklearn.linear_model import LinearRegression
 
 
 @step()
-def model_save(deployment_decision:bool, model:Modeling, model_save_path:str) -> bool: 
+def model_save(deployment_decision:bool, model:LinearRegression, model_save_path:str) -> bool: 
     try:
         if deployment_decision:
             ms = ModelSave(save_path=model_save_path, model=model)

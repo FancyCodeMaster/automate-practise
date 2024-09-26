@@ -7,3 +7,4 @@ zenml[server]
 mlflow
 dvc # data versioning
 joblib
+gradio

@@ -51,10 +51,10 @@ def continuous_deployment_pipeline(
     dataframe = data_preparation(dataframe)
     dataframe = encoding(dataframe)
     X_train, X_test, y_train , y_test = split_dataset(dataframe=dataframe, dependent_variable=dependent_variable,test_size=test_size)
-    model, y_pred = modeling(X_train=X_train, y_train=y_train, X_test=X_test)
+    mod, y_pred, regmodel = modeling(X_train=X_train, y_train=y_train, X_test=X_test)
     mse, mae, r2 = evaluation(y_test, y_pred)
     deployment_decision =  deployment_trigger(r2, min_accuracy)
-    save_decision = model_save(deployment_decision, model, model_save_path)
+    save_decision = model_save(deployment_decision, regmodel, model_save_path)
     # mlflow_model_deployer_step(
     #     model=model,
     #     deploy_decision=deployment_decision,
