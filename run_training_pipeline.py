@@ -6,7 +6,7 @@ import mlflow
 
 
 if __name__ == '__main__':
-    print(Client().active_stack.experiment_tracker.get_tracking_uri())
+    # print(Client().active_stack.experiment_tracker.get_tracking_uri())
     training_pipeline(
         rootfolder=pipeline_config.ROOT_PATH,
         dataset=pipeline_config.datasetfolder,
