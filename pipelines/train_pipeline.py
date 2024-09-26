@@ -17,3 +17,4 @@ def training_pipeline(rootfolder, dataset, csvfilename, dependent_variable, test
     X_train, X_test, y_train , y_test = split_dataset(dataframe=dataframe, dependent_variable=dependent_variable,test_size=test_size)
     model, y_pred, mod = modeling(X_train=X_train, y_train=y_train, X_test=X_test)
     mse, mae, r2 = evaluation(y_test, y_pred)
+    print(f'R2 Accuracy : {r2}')
