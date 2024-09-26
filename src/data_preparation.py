@@ -27,7 +27,7 @@ class DATA_PREPARATION:
         return dataframe
     
     def prepare_data(self) -> pd.DataFrame:
-        # dataframe = self.handle_missing_data(self.dataframe)
-        # dataframe = self.handle_outlier_values(dataframe)
+        dataframe = self.handle_missing_data(self.dataframe)
+        dataframe = self.handle_outlier_values(dataframe)
         dataframe = dataframe.drop(['Extracurricular Activities'], axis=1)
         return self.dataframe
