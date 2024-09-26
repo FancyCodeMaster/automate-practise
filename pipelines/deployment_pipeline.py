@@ -25,17 +25,6 @@ from steps.modeling import modeling
 from steps.evaluation import evaluation
 from steps.model_save import model_save
 
-from zenml.integrations.mlflow.mlflow_utils import get_tracking_uri
-
-# Set the MLflow tracking server URI to the remote server
-os.environ["MLFLOW_TRACKING_URI"] = "http://103.94.159.8:8000"
-
-# Set username and password for authentication
-os.environ["MLFLOW_TRACKING_USERNAME"] = "ekghanti"
-os.environ["MLFLOW_TRACKING_PASSWORD"] = "removeitTy1*}0iSe4SGl#E-"
-
-# Now your deployment will use the remote tracking server instead of local
-print(f"MLflow server running at: {get_tracking_uri()}")
 
 # docker_settings = DockerSettings(required_integrations=[MLFLOW])
 

@@ -1,6 +1,7 @@
 from pipelines.deployment_pipeline import continuous_deployment_pipeline
 import click
 import pipeline_config
+import os
 
 from zenml.integrations.mlflow.mlflow_utils import get_tracking_uri
 from zenml.integrations.mlflow.model_deployers.mlflow_model_deployer import (
@@ -8,6 +9,18 @@ from zenml.integrations.mlflow.model_deployers.mlflow_model_deployer import (
 )
 from zenml.integrations.mlflow.services import MLFlowDeploymentService
 from typing import cast
+
+from zenml.integrations.mlflow.mlflow_utils import get_tracking_uri
+
+# Set the MLflow tracking server URI to the remote server
+# os.environ["MLFLOW_TRACKING_URI"] = "http://103.94.159.8:8000"
+
+# # Set username and password for authentication
+# os.environ["MLFLOW_TRACKING_USERNAME"] = "ekghanti"
+# os.environ["MLFLOW_TRACKING_PASSWORD"] = "removeitTy1*}0iSe4SGl#E-"
+
+# Now your deployment will use the remote tracking server instead of local
+print(f"MLflow server running at: {get_tracking_uri()}")
 
 DEPLOY = "deploy"
 PREDICT = "predict"
