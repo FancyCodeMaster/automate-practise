@@ -11,7 +11,7 @@ from zenml.client import Client
 
 experiment_tracker = Client().active_stack.experiment_tracker
 
-@step(experiment_tracker=experiment_tracker.name)
+@step()
 def evaluation(y_test:pd.Series, y_pred:np.ndarray) -> Tuple[float, float, float]:
     try:
         eval = Evaluation(y_test=y_test, y_pred=y_pred)
