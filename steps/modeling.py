@@ -13,7 +13,7 @@ from zenml.client import Client
 
 experiment_tracker = Client().active_stack.experiment_tracker
 
-@step(experiment_tracker=experiment_tracker.name)
+@step()
 def modeling(X_train:pd.DataFrame, y_train:pd.Series, X_test:pd.DataFrame) -> Tuple[Modeling, np.ndarray, LinearRegression]:
     try:
         mlflow.sklearn.autolog()
